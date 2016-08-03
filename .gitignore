@@ -12,3 +12,4 @@ src/main/webapp/demo.html
 .DS_Store
 /data
 /mirador_full
+realm.properties
