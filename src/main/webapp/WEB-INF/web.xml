@@ -3,7 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-    <display-name>Simple Annotation Server</display-name>
+    <display-name>Pastorius' Bee Hive</display-name>
     <filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>uk.org.llgc.annotation.store.filters.CorsFilter</filter-class>
@@ -32,14 +32,10 @@
 		</init-param>
 		<init-param>
 			<param-name>data_dir</param-name>
-		    <param-value>data</param-value>
+            <!-- CHANGE ME: replace /path/to/beehive/data with path on your machine. -->
+		    <param-value>/path/to/beehive/data</param-value>
 		    <description>Sets the directory containing TDB RDF database</description>
 		</init-param>
-		<!--<init-param>
-			<param-name>encoder</param-name>
-		    <param-value>uk.org.llgc.annotation.store.encoders.BookOfPeaceEncoder</param-value>
-		    <description>Changes the Linked data that is stored in the RDF Store. Also decodes it back into a format mirador understands</description>
-		</init-param> -->
 		<init-param>
 			<param-name>baseURI</param-name>
 		    <param-value>http://dev.llgc.org.uk/annotation/</param-value>
@@ -95,4 +91,31 @@
         <servlet-name>List</servlet-name>
         <url-pattern>/list.html</url-pattern>
     </servlet-mapping>
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Public</web-resource-name>
+            <description>Matches a few special pages.</description>
+            <url-pattern>/public/*</url-pattern>
+        </web-resource-collection>
+        <!-- No auth-constraint means everybody has access! -->
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Test Realm</realm-name>
+        <form-login-config>
+            <form-login-page>/logon.html</form-login-page>
+            <form-error-page>/logonError.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
 </web-app>
