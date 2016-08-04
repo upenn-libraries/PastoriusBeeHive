@@ -33,7 +33,7 @@
 		<init-param>
 			<param-name>data_dir</param-name>
             <!-- CHANGE ME: replace /path/to/beehive/data with path on your machine. -->
-		    <param-value>/path/to/beehive/data</param-value>
+		    <param-value>/home/emeryr/beehive/data</param-value>
 		    <description>Sets the directory containing TDB RDF database</description>
 		</init-param>
 		<init-param>
@@ -109,7 +109,7 @@
     </security-constraint>
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>Test Realm</realm-name>
+        <realm-name>Beehive Realm</realm-name>
         <form-login-config>
             <form-login-page>/logon.html</form-login-page>
             <form-error-page>/logonError.html</form-error-page>
