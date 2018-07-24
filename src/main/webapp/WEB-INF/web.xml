@@ -33,7 +33,7 @@
 		<init-param>
 			<param-name>data_dir</param-name>
             <!-- CHANGE ME: replace /path/to/beehive/data with path on your machine. -->
-		    <param-value>/home/emeryr/beehive/data</param-value>
+		    <param-value>/Users/emeryr/tmp/pastorius/beehive/data</param-value>
 		    <description>Sets the directory containing TDB RDF database</description>
 		</init-param>
 	    <!--<init-param>
@@ -167,6 +167,9 @@
             <form-error-page>/logonError.html</form-error-page>
         </form-login-config>
     </login-config>
+    <session-config>
+        <session-timeout>-1</session-timeout>
+    </session-config>
     <security-role>
         <role-name>admin</role-name>
     </security-role>

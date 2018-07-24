@@ -137,6 +137,12 @@
                     <!--<webAppSourceDirectory>${project.build.directory}</webAppSourceDirectory>-->
                     <scanIntervalSeconds>1</scanIntervalSeconds>
                     <contextPath>/</contextPath>
+                    <loginServices>
+                          <loginService implementation="org.eclipse.jetty.security.HashLoginService">
+                            <name>Test Realm</name>
+                            <config>${basedir}/src/etc/realm.properties</config>
+                        </loginService>
+                    </loginServices>
                     <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
                         <filename>target/yyyy_mm_dd.request.log</filename>
                         <retainDays>90</retainDays>
