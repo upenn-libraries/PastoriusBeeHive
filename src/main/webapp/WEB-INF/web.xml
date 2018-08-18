@@ -118,4 +118,7 @@
     <security-role>
         <role-name>admin</role-name>
     </security-role>
+    <session-config>
+      <session-timeout>-1</session-timeout>
+    </session-config>
 </web-app>
